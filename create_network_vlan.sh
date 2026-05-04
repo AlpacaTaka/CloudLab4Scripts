@@ -92,8 +92,7 @@ if [ "$DHCP" == "dhcp" ]; then
         sudo ip netns exec $NS_NAME dnsmasq \
             --interface=$VETH_NS \
             --dhcp-range=${DHCP_START},${DHCP_END},${MASK},12h \
-            --dhcp-option=3,${GW_ADDR} \
-            --no-daemon --log-dhcp &
+            --dhcp-option=3,${GW_ADDR}
         echo "OK: dnsmasq iniciado en '$NS_NAME' con rango $DHCP_START - $DHCP_END, gateway $GW_ADDR."
     fi
 
